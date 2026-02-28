@@ -1,0 +1,41 @@
+
+================================================================================
+OVERFITTING DIAGNOSIS — STAGE 2 VALIDATION
+================================================================================
+Date: 2026-02-28 22:08
+
+CLASSIFICATION: MODERATE OVERFIT — Recalibration recommended
+SEVERITY      : Moderate
+
+────────────────────────────────────────────────────────────────────────────────
+KEY INDICATORS
+────────────────────────────────────────────────────────────────────────────────
+  • Relative AUC drop          : 0.00%  (threshold: <5% stable, <10% mild)
+  • Relative Lift drop         : 0.00%  (threshold: <10% stable, <20% mild)
+  • Relative ERPU inflation    : 561.81%  (threshold: <15% stable, <25% mild)
+  • Score instability (CV%)    : 11.60%  (top-decile predicted ERPU)
+  • AUC  train→val             : 0.8019 → 0.8688
+  • Lift train→val             : 1.5797 → 2.4720
+
+────────────────────────────────────────────────────────────────────────────────
+FEATURE IMPORTANCE (MODULE A COEFFICIENTS)
+────────────────────────────────────────────────────────────────────────────────
+             frequency :     0.185393
+             net_total :    -0.000000
+               recency :    -0.006653
+              n_events :     0.003815
+
+────────────────────────────────────────────────────────────────────────────────
+THRESHOLDS USED
+────────────────────────────────────────────────────────────────────────────────
+  Stable   : AUC drop <  5%,  Lift drop < 10%,  ERPU inflation < 15%
+  Mild     : AUC drop < 10%,  Lift drop < 20%,  ERPU inflation < 25%
+  Moderate : AUC drop < 15%,  Lift drop < 30%
+  Severe   : Exceeds moderate thresholds
+
+────────────────────────────────────────────────────────────────────────────────
+RECOMMENDATION
+────────────────────────────────────────────────────────────────────────────────
+  Recalibration or regularization recommended before deployment.
+
+================================================================================

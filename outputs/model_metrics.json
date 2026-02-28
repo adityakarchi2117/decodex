@@ -1,0 +1,473 @@
+{
+  "baseline_kpis": {
+    "erpu_mean": 473409.9773967602,
+    "erpu_median": 213432.22,
+    "total_users": 5798,
+    "total_baskets": 41278,
+    "net_revenue": 3715345323.11,
+    "return_rate_pct": 8.980490489508687
+  },
+  "data_health": {
+    "rows": 740589,
+    "users": 5798,
+    "baskets": 41278,
+    "date_min": "2019-12-01 07:45:00",
+    "date_max": "2021-12-09 12:50:00",
+    "purchase_rows": 723488,
+    "return_rows": 17101,
+    "gross_total": 4081921934.2,
+    "return_total": 366576611.09000003,
+    "net_total": 3715345323.11,
+    "return_pct_of_gross": 0.08980490489508687
+  },
+  "fragility_metrics": {
+    "top10_user_share_net": 0.5308100245658455,
+    "top1_user_share_net": 0.19961792203189363,
+    "top1_basket_share_net": 0.1255445305979311,
+    "gini_user_net_y1": 0.6427991732443507,
+    "hhi_net_products": 0.002486047972369741,
+    "top10_products_share_returns": 0.8163067441215787,
+    "top10_products_share_net": 0.07103882056084877
+  },
+  "modeling_metrics": {
+    "repeat_purchase_auc": 0.7957626590321638,
+    "brier_score": 0.1810067430912955,
+    "top_decile_lift": 1.6072052147596323,
+    "poisson_dispersion": 4.206752075253009,
+    "negbin_alpha": 3.206752075253009,
+    "basket_value_model_r2": 0.24338919221829713,
+    "basket_value_model_r2_adj": 0.24319667038425596,
+    "basket_value_model_f": 1264.2160481718659,
+    "gamma_glm_aic": 520127.8319145139
+  },
+  "segment_metrics": {
+    "cluster_count": 4,
+    "clusters": [
+      {
+        "cluster_id": 2,
+        "cluster_name": "High-Value Loyalists",
+        "users": 1246,
+        "net_share_pct": 75.6564939741344,
+        "return_share_pct": 34.18000542636639,
+        "avg_net": 1259902.8160914928,
+        "avg_freq": 10.673354735152488,
+        "avg_recency": 27.43820224719101
+      },
+      {
+        "cluster_id": 0,
+        "cluster_name": "Core Repeat Buyers",
+        "users": 2153,
+        "net_share_pct": 23.053006878830775,
+        "return_share_pct": 5.04073544373526,
+        "avg_net": 222173.5873153739,
+        "avg_freq": 2.1346957733395264,
+        "avg_recency": 54.9558755225267
+      },
+      {
+        "cluster_id": 1,
+        "cluster_name": "Dormant / One-time Buyers",
+        "users": 960,
+        "net_share_pct": 2.923807748669081,
+        "return_share_pct": 22.08239423583147,
+        "avg_net": 63195.54405208333,
+        "avg_freq": 1.2864583333333333,
+        "avg_recency": 251.2
+      },
+      {
+        "cluster_id": 3,
+        "cluster_name": "Return-Dominant / Adjustment Risk",
+        "users": 24,
+        "net_share_pct": -1.633308601634264,
+        "return_share_pct": 38.69686489406688,
+        "avg_net": -1412101.4041666668,
+        "avg_freq": 3.5416666666666665,
+        "avg_recency": 118.29166666666667
+      }
+    ],
+    "return_prone_user_count": 116,
+    "return_prone_rate_pct": 2.6465890942276977,
+    "return_prone_net_share_pct": 1.6891637546389136
+  },
+  "concentration_metrics": {
+    "top10_user_share_pct": 53.08100245658455,
+    "top1_user_share_pct": 19.96179220318936,
+    "top1_basket_share_pct": 12.554453059793111,
+    "gini_coefficient": 0.6427991732443507
+  },
+  "statistical_validation": {
+    "anova_tests": [
+      {
+        "test": "log_net_across_clusters",
+        "f_statistic": 1152.0797123009825,
+        "p_value": 0.0,
+        "eta_squared": 0.9991327572679217,
+        "df_between": 3,
+        "df_within": 4379,
+        "interpretation": "Clusters differ significantly in net revenue (p < 0.0000)"
+      },
+      {
+        "test": "return_rate_across_clusters",
+        "f_statistic": 1748.654574884298,
+        "p_value": 0.0,
+        "eta_squared": 0.999428458614429,
+        "df_between": 3,
+        "df_within": 4379,
+        "interpretation": "Return behavior varies significantly across clusters (p < 0.0000)"
+      },
+      {
+        "test": "purchase_baskets_across_value_buckets",
+        "f_statistic": 480.2565915903895,
+        "p_value": 2.639676375431831e-189,
+        "eta_squared": 0.9979221063825945,
+        "df_between": 2,
+        "df_within": 4380,
+        "interpretation": "Frequency differs significantly across value segments (p < 0.0000)"
+      },
+      {
+        "test": "log_net_across_lifecycle_buckets",
+        "f_statistic": 298.80550554779796,
+        "p_value": 2.251187634478129e-122,
+        "eta_squared": 0.9966645042152484,
+        "df_between": 2,
+        "df_within": 4380,
+        "interpretation": "Net revenue differs significantly across lifecycle stages (p < 0.0000)"
+      }
+    ],
+    "tukey_hsd_summary": "12 pairwise comparisons performed",
+    "significant_tests": 4
+  },
+  "fragility_y1": {
+    "top10_user_share_net": 0.5308100245658455,
+    "top1_user_share_net": 0.19961792203189363,
+    "top1_basket_share_net": 0.1255445305979311,
+    "top10_products_share_returns": 0.8163067441215787,
+    "top10_products_share_net": 0.07103882056084877,
+    "hhi_net_products": 0.002486047972369741,
+    "gini_user_net_y1": 0.6427991732443507
+  },
+  "moduleA": {
+    "auc": 0.7957626590321638,
+    "top_decile_lift": 1.6072052147596323
+  },
+  "moduleB": {
+    "poisson_dispersion": 4.206752075253009,
+    "negbin_alpha": 3.206752075253009
+  },
+  "erpu_y1": {
+    "mean": 473409.9773967602,
+    "median": 213432.22
+  },
+  "returns_overlap_y1": {
+    "return_prone_threshold": 0.2,
+    "return_prone_rate": 0.026465890942276978,
+    "return_prone_user_count": 116,
+    "return_prone_net_share_pct": 1.6891637546389136,
+    "return_prone_in_top10_pct_of_rp": 9.482758620689655,
+    "top10_users_return_prone_pct": 2.5114155251141552
+  },
+  "cluster_concentration_y1": {
+    "cluster_count": 4,
+    "clusters": [
+      {
+        "cluster_id": 2,
+        "cluster_name": "High-Value Loyalists",
+        "users": 1246,
+        "net_share_pct": 75.6564939741344,
+        "return_share_pct": 34.18000542636639
+      },
+      {
+        "cluster_id": 0,
+        "cluster_name": "Core Repeat Buyers",
+        "users": 2153,
+        "net_share_pct": 23.053006878830775,
+        "return_share_pct": 5.04073544373526
+      },
+      {
+        "cluster_id": 1,
+        "cluster_name": "Dormant / One-time Buyers",
+        "users": 960,
+        "net_share_pct": 2.923807748669081,
+        "return_share_pct": 22.08239423583147
+      },
+      {
+        "cluster_id": 3,
+        "cluster_name": "Return-Dominant / Adjustment Risk",
+        "users": 24,
+        "net_share_pct": -1.633308601634264,
+        "return_share_pct": 38.69686489406688
+      }
+    ]
+  },
+  "moduleA_calibration": {
+    "brier_score": 0.1810067430912955,
+    "calibration_gap_mean": 0.03210683063322008,
+    "calibration_deciles": [
+      {
+        "decile": 0,
+        "pred_mean": 0.15060065852106533,
+        "obs_rate": 0.1893939393939394,
+        "count": 132,
+        "gap": 0.038793280872874064
+      },
+      {
+        "decile": 1,
+        "pred_mean": 0.28251164950759217,
+        "obs_rate": 0.3282442748091603,
+        "count": 131,
+        "gap": 0.04573262530156813
+      },
+      {
+        "decile": 2,
+        "pred_mean": 0.4265959093640346,
+        "obs_rate": 0.3712121212121212,
+        "count": 132,
+        "gap": 0.05538378815191336
+      },
+      {
+        "decile": 3,
+        "pred_mean": 0.5206050188039362,
+        "obs_rate": 0.4580152671755725,
+        "count": 131,
+        "gap": 0.06258975162836367
+      },
+      {
+        "decile": 4,
+        "pred_mean": 0.5741824747893601,
+        "obs_rate": 0.5757575757575758,
+        "count": 132,
+        "gap": 0.0015751009682156702
+      },
+      {
+        "decile": 5,
+        "pred_mean": 0.6326031259485777,
+        "obs_rate": 0.6412213740458015,
+        "count": 131,
+        "gap": 0.00861824809722378
+      },
+      {
+        "decile": 6,
+        "pred_mean": 0.6929044084539064,
+        "obs_rate": 0.6870229007633588,
+        "count": 131,
+        "gap": 0.005881507690547627
+      },
+      {
+        "decile": 7,
+        "pred_mean": 0.7735396047582892,
+        "obs_rate": 0.8106060606060606,
+        "count": 132,
+        "gap": 0.03706645584777135
+      },
+      {
+        "decile": 8,
+        "pred_mean": 0.8654252095411977,
+        "obs_rate": 0.9236641221374046,
+        "count": 131,
+        "gap": 0.05823891259620684
+      },
+      {
+        "decile": 9,
+        "pred_mean": 0.9617340897229709,
+        "obs_rate": 0.9545454545454546,
+        "count": 132,
+        "gap": 0.007188635177516334
+      }
+    ]
+  },
+  "basket_value_model": {
+    "r_squared": 0.24338919221829713,
+    "r_squared_adj": 0.24319667038425596,
+    "f_statistic": 1264.2160481718659,
+    "n_obs": 23587,
+    "gamma_glm_aic": 520127.8319145139,
+    "coefficients": [
+      {
+        "feature": "const",
+        "coef": 9.176328144403396,
+        "std_err": 0.14598508573194618,
+        "t_stat": 62.85798373439817,
+        "p_value": 0.0,
+        "significant": true
+      },
+      {
+        "feature": "month",
+        "coef": 0.027243731607257238,
+        "std_err": 0.007299951874138912,
+        "t_stat": 3.732042632194867,
+        "p_value": 0.00019037918108438492,
+        "significant": true
+      },
+      {
+        "feature": "weekday",
+        "coef": 0.06561737142881391,
+        "std_err": 0.012002994581355153,
+        "t_stat": 5.466750066749229,
+        "p_value": 4.630081276445445e-08,
+        "significant": true
+      },
+      {
+        "feature": "hour",
+        "coef": -0.17850729211093974,
+        "std_err": 0.010184223306639546,
+        "t_stat": -17.527825808234482,
+        "p_value": 2.3850068635346855e-68,
+        "significant": true
+      },
+      {
+        "feature": "n_items",
+        "coef": 0.00017231499919000593,
+        "std_err": 1.7965200996542847e-05,
+        "t_stat": 9.591598737089864,
+        "p_value": 9.503499105758146e-22,
+        "significant": true
+      },
+      {
+        "feature": "n_distinct_products",
+        "coef": 0.3265180510139516,
+        "std_err": 0.014373014831426558,
+        "t_stat": 22.717436449033695,
+        "p_value": 4.9252661116651964e-113,
+        "significant": true
+      },
+      {
+        "feature": "n_lines",
+        "coef": -0.21377996348914102,
+        "std_err": 0.01352636394602536,
+        "t_stat": -15.804688114425531,
+        "p_value": 5.599956726522999e-56,
+        "significant": true
+      }
+    ]
+  },
+  "erpu_decomposition": [
+    {
+      "segment": "Overall",
+      "E_freq": 4.383983572895278,
+      "E_basket_gross": 97633.96946538346,
+      "E_basket_net": 87970.31970704201,
+      "E_return_rate": 0.09897835570198492,
+      "ERPU_structural": 385660.43649801787,
+      "ERPU_direct": 385660.4364980179,
+      "ERPU_actual": 473409.9773967602
+    },
+    {
+      "segment": "High-Value Loyalists",
+      "E_freq": 10.673354735152488,
+      "E_basket_gross": 100822.83664321115,
+      "E_basket_net": 96055.73694242182,
+      "E_return_rate": 0.04728194384828705,
+      "ERPU_structural": 1025236.9547329597,
+      "ERPU_direct": 1025236.9547329597,
+      "ERPU_actual": 1259902.8160914928
+    },
+    {
+      "segment": "Core Repeat Buyers",
+      "E_freq": 2.1346957733395264,
+      "E_basket_gross": 88225.75824567722,
+      "E_basket_net": 86156.29205511526,
+      "E_return_rate": 0.023456485177483374,
+      "ERPU_structural": 183917.47249666037,
+      "ERPU_direct": 183917.47249666037,
+      "ERPU_actual": 222173.5873153739
+    },
+    {
+      "segment": "Dormant / One-time Buyers",
+      "E_freq": 1.2864583333333333,
+      "E_basket_gross": 72219.62286271958,
+      "E_basket_net": 39471.51743005856,
+      "E_return_rate": 0.4534516262278337,
+      "ERPU_structural": 50778.462527210744,
+      "ERPU_direct": 50778.462527210744,
+      "ERPU_actual": 63195.544052083314
+    },
+    {
+      "segment": "Return-Dominant / Adjustment Risk",
+      "E_freq": 3.5416666666666665,
+      "E_basket_gross": 350411.92516129033,
+      "E_basket_net": -218647.95935483876,
+      "E_return_rate": 1.6239740820869544,
+      "ERPU_structural": -774378.1893817203,
+      "ERPU_direct": -774378.1893817206,
+      "ERPU_actual": -1412101.4041666666
+    }
+  ],
+  "bootstrap_ci": [
+    {
+      "metric": "ERPU_mean",
+      "point_estimate": 473409.9773967602,
+      "ci_lo": 435231.31180487113,
+      "ci_hi": 513944.3571281656
+    },
+    {
+      "metric": "ERPU_median",
+      "point_estimate": 213432.22,
+      "ci_lo": 205248.89525,
+      "ci_hi": 223690.38
+    },
+    {
+      "metric": "top10_user_share_net",
+      "point_estimate": 0.5308100245658455,
+      "ci_lo": 0.4975250046928855,
+      "ci_hi": 0.5678819330789484
+    },
+    {
+      "metric": "return_rate_mean",
+      "point_estimate": 0.03338788564455527,
+      "ci_lo": 0.02803027399370254,
+      "ci_hi": 0.04011599317200686
+    },
+    {
+      "metric": "top_cluster_net_share",
+      "point_estimate": 0.7565649397413441,
+      "ci_lo": 0.68540569486701,
+      "ci_hi": 0.8340021175897351
+    }
+  ],
+  "cluster_stability": {
+    "silhouette_score": 0.4015829421850966,
+    "ari_mean": 0.9623537552154247,
+    "ari_std": 0.024621939039730093,
+    "ari_min": 0.9246501004976416,
+    "ari_max": 0.9916169200894731
+  },
+  "sensitivity_excl_adjustments": {
+    "adjustment_rows_excluded": 3056,
+    "results": [
+      {
+        "metric": "ERPU_mean",
+        "with_adj": 473409.9773967602,
+        "without_adj": 495567.61189671146,
+        "delta": 22157.634499951266,
+        "delta_pct": 4.680432512595985
+      },
+      {
+        "metric": "ERPU_median",
+        "with_adj": 213432.22,
+        "without_adj": 216111.45,
+        "delta": 2679.2300000000105,
+        "delta_pct": 1.2553071883898366
+      },
+      {
+        "metric": "top10_user_share_net",
+        "with_adj": 0.5308100245658455,
+        "without_adj": 0.5080215672610313,
+        "delta": -0.022788457304814158,
+        "delta_pct": -4.293147501020361
+      },
+      {
+        "metric": "return_pct_of_gross",
+        "with_adj": 0.08980490489508687,
+        "without_adj": 0.024860596597014267,
+        "delta": -0.0649443082980726,
+        "delta_pct": -72.31710603551414
+      },
+      {
+        "metric": "net_revenue",
+        "with_adj": 3715345323.11,
+        "without_adj": 3784089011.1499996,
+        "delta": 68743688.03999949,
+        "delta_pct": 1.8502637591290245
+      }
+    ]
+  }
+}

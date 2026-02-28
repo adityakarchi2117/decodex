@@ -1,0 +1,74 @@
+DATA HEALTH (ALL DATA)
+Rows (line items): 740,589
+Users (unique): 5,798
+Baskets (unique BasketID): 41,278
+Date range: 2019-12-01 07:45:00 → 2021-12-09 12:50:00
+Purchase rows: 723,488 | Return rows: 17,101
+Gross value: 4,081,921,934 | Return value: 366,576,611 | Net: 3,715,345,323
+Return % of gross: 8.98%
+
+BASELINE FRAGILITY (YEAR 1)
+Top 10% user share of net: 53.08%
+Top 1% user share of net: 19.96%
+Top 1% basket share of net: 12.55%
+Top 10 products share of returns: 81.63%
+Top 10 products share of net: 7.10%
+HHI (net concentration across products): 0.0025
+Gini (user net inequality, Year 1): 0.6428
+
+MODULE A (Repeat Purchase) - Logistic Regression
+AUC: 0.796
+Brier score: 0.1810
+Top decile lift: 1.61 (top 10% vs average)
+
+MODULE B (Frequency) - Poisson & NegBin
+Poisson dispersion (Pearson chi2/df): 4.21 (>>1 suggests overdispersion)
+NegBin alpha used: 3.21
+
+MODULE C (Basket Value Model — Mandate B)
+OLS R²: 0.2434 | Adj-R²: 0.2432
+F-statistic: 1264.2 | Observations: 23,587
+Gamma GLM AIC: 520127.8
+
+ERPU (YEAR 1 baseline)
+Mean ERPU (net/user): 473,410
+Median ERPU: 213,432
+  95% CI (mean): [435,231, 513,944]
+  95% CI (median): [205,249, 223,690]
+
+ERPU DECOMPOSITION (structural)
+E[freq] = 4.38 | E[basket_gross] = 97,634 | E[return_rate] = 0.0990
+ERPU structural = E[freq] × E[basket_gross] × (1 − return_rate) = 385,660
+ERPU direct = E[freq] × E[basket_net] = 385,660
+ERPU actual = 473,410
+
+BOOTSTRAP 95% CONFIDENCE INTERVALS
+  ERPU_mean: 473409.9774 [435231.3118, 513944.3571]
+  ERPU_median: 213432.2200 [205248.8953, 223690.3800]
+  top10_user_share_net: 0.5308 [0.4975, 0.5679]
+  return_rate_mean: 0.0334 [0.0280, 0.0401]
+  top_cluster_net_share: 0.7566 [0.6854, 0.8340]
+
+CLUSTER STABILITY
+Silhouette score: 0.4016
+ARI stability: 0.9624 ± 0.0246 (over 10 resamples)
+
+SENSITIVITY: EXCLUDING ADJUSTMENT SKUs
+Adjustment rows excluded: 3,056
+  ERPU_mean: 473409.9774 → 495567.6119 (Δ+4.68%)
+  ERPU_median: 213432.2200 → 216111.4500 (Δ+1.26%)
+  top10_user_share_net: 0.5308 → 0.5080 (Δ-4.29%)
+  return_pct_of_gross: 0.0898 → 0.0249 (Δ-72.32%)
+  net_revenue: 3715345323.1100 → 3784089011.1500 (Δ+1.85%)
+
+RETURNS RISK + OVERLAP (YEAR 1)
+Return-prone users (return_rate >= 0.20): 2.65%
+Return-prone net share: 1.69%
+% of return-prone users inside top 10% revenue: 9.48%
+% of top 10% revenue users who are return-prone: 2.51%
+
+CLUSTER REVENUE + RETURNS CONCENTRATION (YEAR 1)
+High-Value Loyalists (cluster 2): users=1246, net_share=75.66%, return_share=34.18%
+Core Repeat Buyers (cluster 0): users=2153, net_share=23.05%, return_share=5.04%
+Dormant / One-time Buyers (cluster 1): users=960, net_share=2.92%, return_share=22.08%
+Return-Dominant / Adjustment Risk (cluster 3): users=24, net_share=-1.63%, return_share=38.70%

@@ -1,0 +1,7 @@
+metric,value
+poisson_dispersion,1.431692258064461
+overdispersed,1
+model_used,Negative_Binomial
+negbin_alpha,0.4316922580644611
+aic,5614.124977011173
+deviance,3016.957846218326

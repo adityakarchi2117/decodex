@@ -1,0 +1,31 @@
+MODULE A — Purchase Probability (Logistic Regression)
+  P(active in Y2) = σ(β₀ + Σ βᵢxᵢ)
+  Features : ['frequency', 'net_total', 'recency', 'n_events']
+  Coefficients : [0.185393, -0.0, -0.006653, 0.003815]
+  Intercept    : 0.206088
+  Training AUC : 0.8019
+
+MODULE B — Frequency Model (NegativeBinomial)
+  E[freq | active] = exp(β₀ + Σ βᵢxᵢ)
+  Dispersion (var/mean) = 15.5471
+  Features : ['frequency', 'net_total', 'recency']
+  Coefficients : {'Intercept': np.float64(1.42171056), 'frequency': np.float64(0.6175632), 'net_total': np.float64(-0.06679839), 'recency': np.float64(-0.22324234), 'alpha': np.float64(0.36918802)}
+
+MODULE C — Basket Value (OLS on log scale)
+  log(basket_net) = β₀ + Σ βᵢxᵢ
+  Features : ['month', 'weekday', 'hour', 'n_items', 'n_distinct', 'n_lines']
+  R²      = 0.4085
+  Adj-R²  = 0.4084
+  Coefficients:
+                   const :    10.557112  (p=0.0000e+00)
+                   month :    -0.000477  (p=8.1864e-01)
+                 weekday :     0.010923  (p=1.4089e-03)
+                    hour :    -0.042557  (p=4.0277e-48)
+                 n_items :     0.000126  (p=6.9190e-114)
+              n_distinct :     0.118228  (p=7.9366e-184)
+                 n_lines :    -0.073341  (p=6.6706e-82)
+
+ERPU DECOMPOSITION
+  ERPU = P(active) × E[freq | active] × E[basket_value] × (1 − return_rate)
+  Training avg basket value = 109,434.19
+  Training return rate       = 0.0055

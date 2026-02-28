@@ -1,0 +1,2 @@
+dataset,rows,users,baskets,gross_total,return_total,net_total,return_pct_of_gross,date_min,date_max,missing_datetime,missing_userid,return_encoding_consistent
+Shock_Y2,42153,1423,2282,219914331.12,10595030.2,209319300.92000002,4.817798888340133,2020-12-01 09:41:00,2021-12-09 12:25:00,0,0,True

@@ -1,0 +1,114 @@
+{
+  "stage": "Stage 1 - Baseline (Pre-Shock)",
+  "date_generated": "2026-02-28 18:59:29.170845",
+  "data_period": "2019-12-01 07:45:00 to 2021-12-09 12:50:00",
+  "key_metrics": {
+    "total_users": 5798,
+    "total_baskets": 41278,
+    "gross_revenue": 4081921934.2,
+    "return_value": 366576611.09000003,
+    "net_revenue": 3715345323.11,
+    "return_rate_pct": 8.980490489508687,
+    "erpu_mean": 473409.9773967602,
+    "erpu_median": 213432.22
+  },
+  "concentration_metrics": {
+    "top1_user_share_pct": 19.96179220318936,
+    "top10_user_share_pct": 53.08100245658455,
+    "top1_basket_share_pct": 12.554453059793111,
+    "gini_coefficient": 0.6427991732443507,
+    "hhi_products": 0.002486047972369741
+  },
+  "model_performance": {
+    "repeat_purchase_auc": 0.7957626590321638,
+    "brier_score": 0.1810067430912955,
+    "top_decile_lift": 1.6072052147596323,
+    "poisson_dispersion": 4.206752075253009,
+    "negbin_alpha": 3.206752075253009,
+    "basket_value_r2": 0.24338919221829713,
+    "basket_value_r2_adj": 0.24319667038425596
+  },
+  "cluster_metrics": [
+    {
+      "cluster_id": 2,
+      "cluster_name": "High-Value Loyalists",
+      "users": 1246,
+      "net_share_pct": 75.6564939741344,
+      "return_share_pct": 34.18000542636639,
+      "avg_net": 1259902.8160914928,
+      "avg_freq": 10.673354735152488,
+      "avg_recency": 27.43820224719101
+    },
+    {
+      "cluster_id": 0,
+      "cluster_name": "Core Repeat Buyers",
+      "users": 2153,
+      "net_share_pct": 23.053006878830775,
+      "return_share_pct": 5.04073544373526,
+      "avg_net": 222173.5873153739,
+      "avg_freq": 2.1346957733395264,
+      "avg_recency": 54.9558755225267
+    },
+    {
+      "cluster_id": 1,
+      "cluster_name": "Dormant / One-time Buyers",
+      "users": 960,
+      "net_share_pct": 2.923807748669081,
+      "return_share_pct": 22.08239423583147,
+      "avg_net": 63195.54405208333,
+      "avg_freq": 1.2864583333333333,
+      "avg_recency": 251.2
+    },
+    {
+      "cluster_id": 3,
+      "cluster_name": "Return-Dominant / Adjustment Risk",
+      "users": 24,
+      "net_share_pct": -1.633308601634264,
+      "return_share_pct": 38.69686489406688,
+      "avg_net": -1412101.4041666668,
+      "avg_freq": 3.5416666666666665,
+      "avg_recency": 118.29166666666667
+    }
+  ],
+  "return_risk": {
+    "return_prone_rate_pct": 2.6465890942276977,
+    "return_prone_user_count": 116,
+    "return_prone_net_share_pct": 1.6891637546389136
+  },
+  "erpu_decomposition": {
+    "E_freq": 4.383983572895278,
+    "E_basket_gross": 97633.96946538346,
+    "E_return_rate": 0.09897835570198492,
+    "ERPU_structural": 385660.43649801787,
+    "ERPU_actual": 473409.9773967602
+  },
+  "uncertainty": {
+    "erpu_mean_ci": [
+      435231.31180487113,
+      513944.3571281656
+    ],
+    "erpu_median_ci": [
+      205248.89525,
+      223690.38
+    ],
+    "top10_share_ci": [
+      0.4975250046928855,
+      0.5678819330789484
+    ]
+  },
+  "cluster_stability": {
+    "silhouette_score": 0.4015829421850966,
+    "ari_mean": 0.9623537552154247,
+    "ari_std": 0.024621939039730093
+  },
+  "sensitivity_excl_adjustments": {
+    "erpu_mean_no_adj": 495567.61189671146,
+    "net_no_adj": 3784089011.1499996,
+    "delta_erpu_pct": 4.680432512595985
+  },
+  "notes": [
+    "This baseline represents pre-shock behavioral patterns",
+    "Use this file to compare Stage 2 post-shock metrics",
+    "Key comparison points: ERPU, concentration, cluster shifts, return rates"
+  ]
+}

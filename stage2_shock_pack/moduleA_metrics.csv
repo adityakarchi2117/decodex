@@ -1,0 +1,5 @@
+metric,value
+AUC,0.7883678609485061
+Brier_score,0.1337637074785317
+Top_decile_lift,3.1778809601390248
+Calibration_gap_mean,0.041472052485709364

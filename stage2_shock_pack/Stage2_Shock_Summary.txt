@@ -1,0 +1,93 @@
+================================================================================
+STAGE 2 — SHOCK RECALIBRATION INTERIM NARRATIVE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+1. WHAT FUNDAMENTALLY CHANGED?
+────────────────────────────────────────────────────────────────────────────────
+The shock period introduced material disruption to the customer base.
+  • Users: 4,068 → 1,423 (-65.0%)
+  • Baskets: 17,691 → 2,282 (-87.1%)
+  • Net Revenue: 1,640,389,392 → 209,319,301 (-87.2%)
+  • ERPU (Mean): 403,242 → 147,097 (-63.5%)
+  • Return Rate: 7.79% → 4.82%
+  • Gini Coefficient: 0.6357 → 0.5566
+  • Top 10% User Share: 52.0% → 42.2%
+
+────────────────────────────────────────────────────────────────────────────────
+2. WHICH MODULES WERE IMPACTED?
+────────────────────────────────────────────────────────────────────────────────
+  Module A (Repeat/Active):
+    AUC = 0.788 | Brier = 0.1338 | Top-decile lift = 3.18x
+    ⚠ AUC moderate (0.70–0.80) — model partially resilient but needs monitoring
+  Module B (Frequency):
+    Dispersion = 1.43 | Model = Negative_Binomial
+    Moderate dispersion — frequency model adapted via NegBin
+  Module C (Basket Value — Mandate B):
+    OLS R² = 0.2518 | Adj-R² = 0.2498
+    Fitted on shock baskets to capture changed transaction dynamics
+
+────────────────────────────────────────────────────────────────────────────────
+3. WHAT WAS RECALIBRATED?
+────────────────────────────────────────────────────────────────────────────────
+  • Module A: Retrained logistic regression (Y1 features → shock outcomes)
+    Key drivers by odds ratio:
+      frequency: OR = 2.559
+      net_total: OR = 1.396
+      n_events: OR = 1.244
+  • Module B: Negative_Binomial GLM fitted to shock frequency counts
+  • Module C: Basket value OLS built on 2,282 shock baskets
+  • ERPU decomposition recalculated for shock period
+  • Bootstrap CIs regenerated for both Baseline and Shock
+
+────────────────────────────────────────────────────────────────────────────────
+4. BEFORE vs AFTER KPIs
+────────────────────────────────────────────────────────────────────────────────
+  Metric                               Baseline          Shock          Delta
+  ────────────────────────────── ────────────── ────────────── ──────────────
+  rows                                  323,055         42,153         -87.0%
+  users                                   4,068          1,423         -65.0%
+  baskets                                17,691          2,282         -87.1%
+  gross                           1,779,029,496    219,914,331         -87.6%
+  returns                           138,640,104     10,595,030         -92.4%
+  net                             1,640,389,392    209,319,301         -87.2%
+  return_pct_of_gross                    7.7930         4.8178         -38.2%
+  erpu_mean                             403,242        147,097         -63.5%
+  erpu_median                           185,273         95,005         -48.7%
+  top10_user_share                       0.5203         0.4218         -18.9%
+  gini_coefficient                       0.6357         0.5566         -12.5%
+
+────────────────────────────────────────────────────────────────────────────────
+5. TRADE-OFFS
+────────────────────────────────────────────────────────────────────────────────
+  • Recalibration uses Y1 features to predict shock outcomes — assumes Y1 behavioral
+    features remain relevant predictors despite distributional shift.
+  • Basket value model fitted on shock data only — captures current dynamics but
+    may not generalize if shock is temporary.
+  • Cluster assignments from Y1 may not reflect shock-induced behavioral changes.
+    Cluster stability ARI = 0.8863 suggests moderate transferability.
+  • Bootstrap CIs assume i.i.d. users — real-world dependence may widen intervals.
+
+────────────────────────────────────────────────────────────────────────────────
+6. STRUCTURAL RISKS REMAINING
+────────────────────────────────────────────────────────────────────────────────
+  • Revenue concentration: Top 10% users hold 42.2% of net — any churn in this segment is catastrophic.
+  • Return rate at 4.82% — if trending upward, erodes margins faster than volume can compensate.
+  • ERPU structural decomposition shows frequency as primary shock driver.
+  • Sensitivity analysis shows adjustment SKU exclusion changes ERPU by +0.44% — robustness concern if these are volatile.
+  • Product concentration (HHI): 0.002078 → 0.001758
+
+────────────────────────────────────────────────────────────────────────────────
+7. STAGE 3 DIRECTION (OPTIMIZATION LEVERS)
+────────────────────────────────────────────────────────────────────────────────
+  Potential levers for Stage 3 optimization (no decisions made):
+  • Frequency uplift: Target mid-tier users (clusters 2-3) with purchase acceleration campaigns
+  • Basket value expansion: Use Module C coefficients to identify high-impact time slots / basket compositions
+  • Return rate reduction: Root-cause analysis on top return SKUs, policy intervention modeling
+  • Concentration de-risking: LTV-based rebalancing to reduce top-10% dependency below 50%
+  • Churn prevention: Module A probabilities → tiered retention programs for at-risk high-value users
+  • Dynamic pricing: Gamma GLM predictions for basket value × demand elasticity
+
+================================================================================
+END OF STAGE 2 INTERIM NARRATIVE
+================================================================================

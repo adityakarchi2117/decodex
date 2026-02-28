@@ -1,0 +1,87 @@
+================================================================================
+STAGE 1 - STRATEGY FRAMEWORKS (DATA-BACKED)
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+SWOT ANALYSIS
+────────────────────────────────────────────────────────────────────────────────
+
+STRENGTHS:
+  • High-value segment identified: High-Value Loyalists contributes 75.7% of net revenue with 1246 users (28.4% of base)
+  • Strong repeat purchase predictability: Logistic model achieves AUC 0.796 with top decile lift 1.61×
+  • Manageable return rate: Overall 8.98% of gross, concentrated in High-Value Loyalists (34.2% of returns)
+  • Established ERPU baseline: Mean ₹473,410, providing clear benchmark for shock impact assessment
+
+WEAKNESSES:
+  • Extreme revenue concentration: Top 10% users generate 53.1% of net revenue (Gini 0.643), creating single-point-of-failure risk
+  • Heavy-tail dependency: Top 1% users contribute 20.0% of net, indicating vulnerability to high-value churn
+  • Frequency overdispersion: Poisson dispersion 4.21 (>>1) suggests unpredictable purchase patterns
+  • Dormant segment: 960 users with avg recency 251 days, representing untapped reactivation potential
+
+OPPORTUNITIES:
+  • Cluster-specific interventions: 4 distinct behavioral segments enable targeted retention strategies
+  • Return-prone mitigation: 1246 users in High-Value Loyalists account for 34.2% of returns—addressable through policy/product changes
+  • Frequency expansion: Core segments show avg 2.1 baskets/user, indicating room for purchase acceleration
+  • Concentration diversification: Bottom 90% users contribute 46.9% of revenue—growth potential through mid-tier activation
+
+THREATS:
+  • Shock amplification risk: 53.1% concentration means any disruption to top decile cascades to 53.1% revenue loss
+  • Return contagion: 34.2% of returns from 1246 users suggests systemic issue, not isolated behavior
+  • Churn vulnerability: Top cluster avg recency 27 days—any increase signals immediate revenue risk
+  • Negative-value cluster: High-Value Loyalists shows 75.66% net share (negative), indicating value destruction
+
+────────────────────────────────────────────────────────────────────────────────
+PESTLE ANALYSIS (SHOCK-RELEVANT FACTORS)
+────────────────────────────────────────────────────────────────────────────────
+
+POLITICAL:
+  • Return policy regulation risk: 8.98% return rate could face policy restrictions, disproportionately impacting High-Value Loyalists (34.2% of returns)
+
+ECONOMIC:
+  • Purchasing power shock: 53.1% revenue concentration means economic downturn affecting top decile = 53.1% revenue at risk
+  • Price sensitivity: Frequency overdispersion (χ²/df = 4.21) suggests elastic demand vulnerable to price shocks
+
+SOCIAL:
+  • Behavioral shift risk: 10.7 avg baskets in top cluster vs 3.5 in bottom—social trends could compress this gap
+
+TECHNOLOGICAL:
+  • Platform disruption: 8.98% return rate concentrated in 1246 users—tech-enabled return abuse could amplify
+
+LEGAL:
+  • Consumer protection: 2.8% avg return rate in High-Value Loyalists may trigger legal scrutiny
+
+ENVIRONMENTAL:
+  • Sustainability pressure: 8.98% return rate = reverse logistics cost/carbon footprint—ESG regulations could increase friction
+
+────────────────────────────────────────────────────────────────────────────────
+BALANCED SCORECARD
+────────────────────────────────────────────────────────────────────────────────
+
+FINANCIAL PERSPECTIVE:
+  • ERPU (Mean): ₹473,410
+  • ERPU (Median): ₹213,432
+  • Revenue Concentration (Top 10%): 53.08%
+  • Revenue Concentration (Top 1%): 19.96%
+  • Gini Coefficient: 0.6428
+  • Net Revenue: ₹3,715,345,323
+
+CUSTOMER PERSPECTIVE:
+  • Repeat Purchase Probability (AUC): 0.796
+  • Top Decile Lift: 1.61×
+  • Frequency Dispersion (χ²/df): 4.21
+  • Active Users (Recency <30d): 1632 (37.2%)
+  • Dormant Users (Recency >90d): 1449 (33.1%)
+
+PROCESS PERSPECTIVE:
+  • Return Rate (% of Gross): 8.98%
+  • Return Concentration (Top 10 SKUs): 81.63%
+  • Product Diversification (HHI): 0.0025
+  • Basket Count: 41,278
+
+RISK PERSPECTIVE:
+  • Cluster Fragility: 75.7% revenue in single cluster (High-Value Loyalists)
+  • Return-Prone Users: 116 (2.65%)
+  • Negative-Value Cluster: High-Value Loyalists with 75.66% net share
+  • Heavy-Tail Risk: Top 1% baskets = 12.55% of net
+
+================================================================================

@@ -1,0 +1,5 @@
+test,f_statistic,p_value,eta_squared,df_between,df_within,interpretation
+log_net_across_clusters,1152.0797123009825,0.0,0.9991327572679217,3,4379,Clusters differ significantly in net revenue (p < 0.0000)
+return_rate_across_clusters,1748.654574884298,0.0,0.999428458614429,3,4379,Return behavior varies significantly across clusters (p < 0.0000)
+purchase_baskets_across_value_buckets,480.2565915903895,2.639676375431831e-189,0.9979221063825945,2,4380,Frequency differs significantly across value segments (p < 0.0000)
+log_net_across_lifecycle_buckets,298.80550554779796,2.251187634478129e-122,0.9966645042152484,2,4380,Net revenue differs significantly across lifecycle stages (p < 0.0000)

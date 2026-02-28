@@ -1,0 +1,56 @@
+{
+  "stage": 2,
+  "date": "2026-02-28",
+  "validation_users": 2681,
+  "training_users": 4381,
+  "moduleA": {
+    "features": [
+      "frequency",
+      "net_total",
+      "recency",
+      "n_events"
+    ],
+    "train_auc": 0.801913844913515,
+    "val_auc": 0.8687557944396849,
+    "auc_drop_pct": 0.0
+  },
+  "moduleB": {
+    "model_type": "NegativeBinomial",
+    "dispersion": 15.54707085041926
+  },
+  "moduleC": {
+    "r_squared": 0.408536607842079,
+    "r_squared_adj": 0.4083822123514135
+  },
+  "calibration": {
+    "train_brier": 0.17795255344459474,
+    "val_brier": 0.185164832239138,
+    "train_ece": 0.036928781823735865,
+    "val_ece": 0.19052565391535128,
+    "recalibrated": true,
+    "recal_method": "Isotonic Regression",
+    "brier_decomp_val": {
+      "uncertainty": 0.237100259733177,
+      "resolution": 0.10001190553507087,
+      "reliability": 0.04938055121969201,
+      "brier_check": 0.18646890541779812
+    }
+  },
+  "overfitting": {
+    "classification": "MODERATE OVERFIT \u2014 Recalibration recommended",
+    "severity": "Moderate",
+    "auc_drop_pct": 0,
+    "lift_drop_pct": 0,
+    "erpu_inflation_pct": 561.808690553039,
+    "score_instability_cv": 11.598791280403363
+  },
+  "erpu_validation": {
+    "mean": 64731.636105930615,
+    "median": 0.0
+  },
+  "concentration_validation": {
+    "top10_share": 0.6682441356347252,
+    "top1_share": 0.22679092215372276,
+    "gini": 0.8333716119616268
+  }
+}
