@@ -7,3 +7,5 @@ lifetimes
 openpyxl
 statsmodels
 scikit-learn
+plotly
+streamlit 
