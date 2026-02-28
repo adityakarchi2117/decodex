@@ -8,6 +8,14 @@ openpyxl
 statsmodels
 scikit-learn
 plotly
+<<<<<<< HEAD
 streamlit>=1.32.0
 altair>=5.0.0,<6
 python-pptx
+=======
+streamlit 
+streamlit>=1.32.0
+altair>=5.0.0,<6
+python-pptx
+
+>>>>>>> 131fdbf88263bf4ed00b5c0f0ef56a056d2abc1f
