@@ -1,0 +1,31 @@
+================================================================================
+STRUCTURAL FRAGILITY ASSESSMENT — STAGE 3
+================================================================================
+
+Q1: Does targeting increase revenue concentration?
+  Full population Top-10% ERPU share: 38.23%
+  Targeted set Top-10% ERPU share   : 30.86%
+  Stage 1 baseline Top-10% share    : 53.08%
+  -> NO: Targeting concentration (30.86%) is below Stage 1 baseline (53.08%)
+
+Q2: Does targeting amplify exposure to extreme users?
+  Extreme users (P99 ERPU >= 2,238,980):
+    Full population: 44 (1.00%)
+    Targeted set   : 44 (3.35%)
+  -> YES: Extreme user concentration is 3.3x higher in targeted set
+
+Q3: Is return risk clustered in the targeted set?
+  Max single-decile share of targeted: 17.4%
+  Top return-risk decile in targeted : 17.4%
+  -> Return risk is clustered
+
+Q4: Does small parameter change destabilize solution?
+  Tighten return cap (25%→20%): Revenue change = +0.00%
+  Tighten conc cap (+15%→+10%): Revenue change = +0.00%
+  Both tight: Revenue change = +0.00%
+  -> Solution is interior to the feasible region.
+     All constraints can tighten by ~5 pp with zero revenue loss.
+
+================================================================================
+PRIMARY FRAGILITY DRIVER: None — no constraint binds
+================================================================================

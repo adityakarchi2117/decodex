@@ -1,0 +1,157 @@
+{
+  "stage": "Stage 3 \u2014 Targeting Optimization",
+  "generated": "2026-03-01T03:10:26.503759",
+  "test_data": "Customers_Test_set.xlsx",
+  "n_total_users": 4381,
+  "n_targeted_users": 1314,
+  "pct_targeted": 29.99,
+  "total_expected_net_revenue": 962439388.35,
+  "mean_erpu_targeted": 732450.07,
+  "mean_erpu_non_targeted": 162494.19,
+  "optimization_method": "ERPU Ranking with Constraint Feasibility Check",
+  "lambda1": 0,
+  "lambda2": 0,
+  "constraints": {
+    "budget": {
+      "limit": 0.3,
+      "actual": 0.2999,
+      "status": "PASS"
+    },
+    "return_risk": {
+      "limit": 0.25,
+      "actual": 0.1743,
+      "status": "PASS"
+    },
+    "concentration": {
+      "stage1_baseline": 0.5308,
+      "stage3_top10_share": 0.3086,
+      "relative_increase": -0.4186,
+      "limit": 0.15,
+      "status": "PASS"
+    }
+  },
+  "erpu_decomposition_targeted": {
+    "mean_purchase_prob": 0.89,
+    "mean_frequency": 6.4471,
+    "mean_basket_value": 144456.8,
+    "return_rate": 0.0055,
+    "mean_E_gross": 736532.36,
+    "mean_E_return": 4082.29,
+    "mean_erpu": 732450.07
+  },
+  "prediction_accuracy": {
+    "pred_actual_ratio": 7.0215,
+    "targeted_with_test_txn": 594,
+    "targeted_test_coverage_pct": 45.21,
+    "total_test_overlap": 1004,
+    "actual_targeted_revenue": 137069500.36,
+    "erpu_return_risk_spearman": 0.2369
+  },
+  "concentration_dual": {
+    "within_targeted_top10_share": 0.3086,
+    "full_pop_top10_share": 0.3823,
+    "stage1_baseline": 0.5308
+  },
+  "calibration": {
+    "method": "5-fold cross-validated isotonic regression",
+    "module_c_per_user": true,
+    "duan_smearing": true,
+    "shrinkage_k": 5
+  },
+  "fragility": {
+    "primary_driver": "None \u2014 no constraint binds",
+    "scenarios": [
+      {
+        "scenario": "Base (25%, +15%)",
+        "return_cap": "25%",
+        "conc_cap": "+15%",
+        "n_targeted": 1314,
+        "total_erpu": 962439388.3499078,
+        "return_pct": 17.427701674277017,
+        "top10_share_pct": 30.85954999267095,
+        "conc_increase_pct": -41.86218916226272,
+        "conc_feasible": true,
+        "all_feasible": true,
+        "revenue_impact": 0.0,
+        "revenue_impact_pct": 0.0
+      },
+      {
+        "scenario": "Tight Return (20%, +15%)",
+        "return_cap": "20%",
+        "conc_cap": "+15%",
+        "n_targeted": 1314,
+        "total_erpu": 962439388.3499078,
+        "return_pct": 17.427701674277017,
+        "top10_share_pct": 30.85954999267095,
+        "conc_increase_pct": -41.86218916226272,
+        "conc_feasible": true,
+        "all_feasible": true,
+        "revenue_impact": 0.0,
+        "revenue_impact_pct": 0.0
+      },
+      {
+        "scenario": "Tight Conc (25%, +10%)",
+        "return_cap": "25%",
+        "conc_cap": "+10%",
+        "n_targeted": 1314,
+        "total_erpu": 962439388.3499078,
+        "return_pct": 17.427701674277017,
+        "top10_share_pct": 30.85954999267095,
+        "conc_increase_pct": -41.86218916226272,
+        "conc_feasible": true,
+        "all_feasible": true,
+        "revenue_impact": 0.0,
+        "revenue_impact_pct": 0.0
+      },
+      {
+        "scenario": "Both Tight (20%, +10%)",
+        "return_cap": "20%",
+        "conc_cap": "+10%",
+        "n_targeted": 1314,
+        "total_erpu": 962439388.3499078,
+        "return_pct": 17.427701674277017,
+        "top10_share_pct": 30.85954999267095,
+        "conc_increase_pct": -41.86218916226272,
+        "conc_feasible": true,
+        "all_feasible": true,
+        "revenue_impact": 0.0,
+        "revenue_impact_pct": 0.0
+      }
+    ]
+  },
+  "marginal_analysis": [
+    {
+      "scenario": "25%",
+      "n_targeted": 1095,
+      "total_erpu": 882244366.914411,
+      "mean_erpu": 805702.6181866766,
+      "return_prone_pct": 18.812785388127853,
+      "top10_share_pct": 30.38447322626055,
+      "marginal_vs_prev": 0.0,
+      "marginal_pct_vs_prev": 0.0
+    },
+    {
+      "scenario": "30%",
+      "n_targeted": 1314,
+      "total_erpu": 962439388.3499078,
+      "mean_erpu": 732450.0672373727,
+      "return_prone_pct": 17.427701674277017,
+      "top10_share_pct": 30.85954999267095,
+      "marginal_vs_prev": 80195021.4354968,
+      "marginal_pct_vs_prev": 9.08988761424155
+    },
+    {
+      "scenario": "35%",
+      "n_targeted": 1533,
+      "total_erpu": 1033892671.8339915,
+      "mean_erpu": 674424.4434664003,
+      "return_prone_pct": 16.829745596868882,
+      "top10_share_pct": 31.24041263089243,
+      "marginal_vs_prev": 71453283.48408377,
+      "marginal_pct_vs_prev": 7.424185288861637
+    }
+  ],
+  "stage1_baseline": {
+    "top10_user_share": 0.5308
+  }
+}

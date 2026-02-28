@@ -1,0 +1,4 @@
+constraint,limit,actual,status
+Targeting Budget (≤30%),30%,30.0%,PASS
+Return Risk (top decile ≤25%),25%,17.4%,PASS
+Concentration (≤+15% vs Stage 1),+15% (max 61.0%),30.9% (-41.9%),PASS

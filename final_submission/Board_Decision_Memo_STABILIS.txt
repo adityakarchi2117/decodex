@@ -1,0 +1,80 @@
+================================================================================
+BOARD DECISION MEMO — CASE STABILIS
+Lead Customer Revenue Analytics Advisor | 1 March 2026
+================================================================================
+
+The STABILIS customer base underwent a severe structural regime shift between
+Year 1 and the shock period. This memo presents the validated targeting
+recommendation derived from a three-stage analytical pipeline — baseline
+profiling, out-of-sample stress validation, and constrained revenue
+optimization — and addresses residual risks the Board should monitor.
+
+────────────────────────────────────────────────────────────────────────────────
+1. WHAT FUNDAMENTALLY CHANGED AFTER THE REGIME SHIFT
+────────────────────────────────────────────────────────────────────────────────
+
+The active customer base contracted by 65%, from 4,068 to 1,423 users. Net
+revenue fell 87.2% (1.64 billion to 209 million), and mean ERPU declined
+63.5% from 403,242 to 147,097. Crucially, the shock was not uniform: the
+return rate improved from 7.79% to 4.82%, and the Gini coefficient compressed
+from 0.64 to 0.56, meaning that the surviving customer pool is both less
+return-prone and less concentrated than the pre-shock universe. The top-10%
+revenue share dropped from 52.0% to 42.2%, indicating that the regime shift
+disproportionately eliminated high-spending outliers rather than the broad
+middle of the customer base.
+
+────────────────────────────────────────────────────────────────────────────────
+2. WHAT TRADE-OFFS WERE ACCEPTED
+────────────────────────────────────────────────────────────────────────────────
+
+The optimization selects the top 30% of scorable users (1,314 of 4,381) by
+risk-adjusted expected revenue. In doing so, it accepts that 3,067 users —
+including some with modest positive ERPU — receive no targeting investment.
+Stage 2 validation surfaced a Pred-to-Actual ratio of 7.02x and a moderate
+overfitting classification (ERPU inflation of 561.8%), which was addressed
+through cross-validated isotonic recalibration of Module A probabilities and
+per-user Module C basket predictions with Duan smearing and shrinkage toward
+the population prior of 109,434. The recalibration reduced but did not
+eliminate prediction-level bias; the Board should interpret the 962 million
+expected net revenue figure as directionally reliable rather than precise.
+Extreme users (P99 ERPU) are 3.3x more concentrated in the targeted set than
+in the full population, a deliberate trade-off: these 44 users drive
+outsized expected value but also outsized variance.
+
+────────────────────────────────────────────────────────────────────────────────
+3. WHAT FINAL DECISION IS RECOMMENDED
+────────────────────────────────────────────────────────────────────────────────
+
+Target the top 1,314 users ranked by ERPU, defined as calibrated purchase
+probability multiplied by expected frequency, per-user expected basket value,
+and one minus the training return rate. The minimum ERPU threshold for
+inclusion is 346,344; the mean ERPU of the targeted set is 732,450 versus
+162,494 for the non-targeted remainder. All three constraints are satisfied
+with margin: targeting budget at 30.0% (limit 30%), top-decile return-risk
+exposure at 17.4% (limit 25%), and revenue concentration at 30.9%, which is
+41.9 percentage points below the Stage 1 baseline of 53.1% — well inside the
+permitted +15% ceiling. No penalty terms were required; the solution sits
+interior to the feasible region and remains stable when both the return cap
+and concentration cap are simultaneously tightened by five percentage points.
+
+────────────────────────────────────────────────────────────────────────────────
+4. WHAT RISKS REMAIN
+────────────────────────────────────────────────────────────────────────────────
+
+Three residual risks warrant Board attention. First, 77% of the scorable
+universe (3,377 of 4,381 users) recorded no test-period transactions,
+meaning the model scores a large dormant segment whose future behavior is
+unobserved; if even a moderate fraction reactivates outside the targeted set,
+realized revenue capture will underperform expectations. Second, the feature
+set carries acknowledged autoregressive leakage — Year 1 frequency is the
+dominant predictor of Year 2 frequency — so a further structural break in
+purchase cadence would degrade model discrimination. Third, return risk is
+clustered: the top return-loss decile within the targeted set absorbs the
+full 17.4% return exposure, and any product-mix shift that raises return
+rates above the training average of 0.55% would tighten the constraint
+toward its 25% ceiling without management visibility until the next
+recalibration cycle. The recommendation is implementable today, but the Board
+should mandate a quarterly recalibration trigger tied to a ±10% movement in
+observed return rates or a ≥15% shift in active-user counts.
+
+================================================================================

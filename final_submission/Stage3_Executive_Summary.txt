@@ -1,0 +1,85 @@
+================================================================================
+EXECUTIVE SUMMARY — STAGE 3 TARGETING OPTIMIZATION
+Case STABILIS | Date: 2026-03-01
+================================================================================
+
+OBJECTIVE: Maximize Total Expected Net Revenue subject to structural constraints
+
+KEY RESULTS:
+  Total Expected Net Revenue (targeted) : 962,439,388
+  Actual Test Revenue (targeted set)    : 137,069,500
+  Pred / Actual Ratio                   : 7.02x
+  Targeted User Count                   : 1,314 / 4,381
+  % Targeted                            : 30.0%
+  Targeted with test transactions       : 594/1,314 (45.2%)
+  Return Risk Exposure                  : 17.4%
+  Top-10% ERPU Share (targeted set)     : 30.9%
+  Full-population Top-10% ERPU Share    : 38.2%
+  Concentration vs Stage 1              : -41.9%
+  ERPU vs Return Risk Spearman rho      : 0.2369
+
+CONSTRAINT COMPLIANCE: ALL PASS
+  [PASS] Targeting Budget (≤30%): 30.0% (limit: 30%)
+  [PASS] Return Risk (top decile ≤25%): 17.4% (limit: 25%)
+  [PASS] Concentration (≤+15% vs Stage 1): 30.9% (-41.9%) (limit: +15% (max 61.0%))
+
+OPTIMIZATION METHOD:
+  ERPU Ranking with Constraint Feasibility Check
+  Penalties set to zero because constraints were satisfied naturally;
+  constraints enforced as hard feasibility checks.
+  lambda1 (return risk penalty)      = 0
+  lambda2 (concentration penalty)    = 0
+
+MODEL PIPELINE:
+  Module A: Logistic Regression + Isotonic Calibration → P_cal(purchase)
+  Module B: Negative Binomial → E[freq | active]
+  Module C: OLS (log scale) → E[basket_i] per user (Duan smearing + shrinkage)
+  ERPU = P_cal(purchase) × E[freq] × E[basket_i] × (1 - return_rate)
+
+ERPU DECOMPOSITION (Targeted Set):
+  Mean P(purchase)   : 0.8900
+  Mean E[frequency]  : 6.45
+  Mean E[basket]     : 144,457
+  Return rate        : 0.0055
+  Mean ERPU          : 732,450
+
+TRADE-OFF ANALYSIS:
+  25%: Total=882,244,367, Return%=18.8%, Top10%=30.4%
+  30%: Total=962,439,388, Return%=17.4%, Top10%=30.9%
+  35%: Total=1,033,892,672, Return%=16.8%, Top10%=31.2%
+
+FRAGILITY:
+  Primary Driver: None — no constraint binds
+  Base (25%, +15%): ERPU=962,439,388, Impact=+0.00%
+  Tight Return (20%, +15%): ERPU=962,439,388, Impact=+0.00%
+  Tight Conc (25%, +10%): ERPU=962,439,388, Impact=+0.00%
+  Both Tight (20%, +10%): ERPU=962,439,388, Impact=+0.00%
+
+DEFINITIONS:
+  Return Risk = Expected Return Loss = E[gross] × return_rate;
+    deciles are computed on that value.
+  Return Risk Decile: users ranked by E[gross]*return_rate into 10 equal bins;
+    top decile = highest expected return-loss exposure.
+
+ASSUMPTIONS:
+  1. Stage 1 models trained on Y1→Y2 are applicable to test regime
+  2. Module A probabilities are isotonic-calibrated (addresses Stage 2 ECE=0.19)
+  3. E[basket_i] = Module C per-user prediction with Duan's smearing,
+     shrunk toward population mean (k=5); population prior = 109,434
+  4. return_rate = training average = 0.0055
+  5. Test users not in Y1 are excluded (no feature basis for scoring)
+  6. Pred/Actual ratio > 1.0 expected: scoring universe includes Y1 users
+     who may have churned (3,377 of 4,381 have no test transactions)
+  7. Feature leakage acknowledged: Y1 frequency predicts Y2 frequency (autoregressive)
+
+STAGE 2 RECALIBRATION:
+  Stage 2 identified ECE = 0.19 for Module A.
+  Fix applied: cross-validated isotonic regression on training probabilities.
+  Module C now used per-user (was population constant in prior version).
+
+FINAL RECOMMENDATION:
+  Target the top 1,314 users (30.0%) by risk-adjusted score.
+  Expected net revenue from targeted set: 962,439,388
+  All constraints satisfied. Solution is stable under moderate parameter perturbation.
+
+================================================================================

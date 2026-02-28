@@ -1,0 +1,21 @@
+================================================================================
+FINAL TARGETING RULE
+================================================================================
+
+Method: ERPU Ranking with Constraint Feasibility Check
+  Penalties set to zero because constraints were satisfied naturally;
+  constraints enforced as hard feasibility checks.
+  Score_i = ERPU_i (lambda1=0, lambda2=0)
+
+Decision Rule:
+  1. Compute ERPU_i = P_cal(purchase_i) * E[freq_i] * E[basket_i] * (1 - return_rate)
+  2. Compute risk-adjusted score for each user
+  3. Rank users by score descending
+  4. Select top 30% = 1314 users
+  5. Verify: Return risk ≤ 25%, Concentration Δ ≤ +15%
+
+Threshold Values:
+  Min ERPU in targeted set : 346,344
+  Min opt_score in targeted: 0.0380
+  Mean ERPU (targeted)     : 732,450
+  Mean ERPU (non-targeted) : 162,494
